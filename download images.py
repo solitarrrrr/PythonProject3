@@ -33,4 +33,4 @@ def download_images_until(keyword, target_count=200, output_dir="./images"):
 
 if __name__ == "__main__":
     for animal in ["pig", "dog", "fish"]:
-        download_images_until(animal, target_count=400)
+        download_images_until(animal, target_count=500)

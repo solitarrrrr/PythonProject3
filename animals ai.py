@@ -4,8 +4,8 @@ import numpy as np
 import tensorflow as tf
 
 # define the path with model name
-MODEL_PATH = "models_tflite/model_unquant.tflite"
-LABELS_FILE_PATH = "models_tflite/labels.txt"
+MODEL_PATH = "animal_model/model_unquant.tflite"
+LABELS_FILE_PATH = "animal_model/labels.txt"
 
 def load_labels(file_path):
     labels = []
