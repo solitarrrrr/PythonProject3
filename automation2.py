@@ -76,3 +76,6 @@ with mss.mss() as sct:
         if cv2.waitKey(25) & 0xFF == ord('q'):
             cv2.destroyAllWindows()
             break
+
+
+# add time related changes to parameters regulating jump?
