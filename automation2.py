@@ -19,12 +19,16 @@ tw4, th4 = tree4.shape[::-1]
 birdie = cv2.imread('t rex/birdie.png', 0)
 nw, nh = birdie.shape[::-1]
 
+def jump():
+    key.press(Key.space)
+    time.sleep(0.3)
+    key.release(Key.space)
 
 
 
 with mss.mss() as sct:
     # Part of the screen to capture
-    monitor = {'top': 100, 'left': 100, 'width': 500, 'height': 400}
+    monitor = {'top':700, 'left': 100, 'width': 300, 'height': 100}
 
     while 'Screen capturing':
 
@@ -42,17 +46,27 @@ with mss.mss() as sct:
         loc2 = numpy.where(res2 >= threshold)
         for pt in zip(*loc2[::-1]):
             cv2.rectangle(img, pt, (pt[0] + tw, pt[1] + th), (0, 0, 255), 2)
+            if pt[0] + tw < 150:
+                jump()
+                break
 
 
-        loc2 = numpy.where(res3 >= threshold)
+        loc3 = numpy.where(res3 >= threshold)
         for pt in zip(*loc2[::-1]):
             cv2.rectangle(img, pt, (pt[0] + nw, pt[1] + nh), (0, 0, 255), 2)
             print("{0},{1}".format(pt[0], pt[1]))
+            if pt[0] + nw < 150:
+                jump()
+                break
 
 
         loc5 = numpy.where(res5 >= threshold)
         for pt in zip(*loc5[::- 1]):
             cv2.rectangle(img, pt, (pt[0] + tw4, pt[1] + th4), (0, 0, 255), 2)
+            if pt[0] + tw4 < 150:
+                jump()
+                break
+
 
 
         # Display the picture
